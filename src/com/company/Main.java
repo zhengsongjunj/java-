@@ -1,29 +1,49 @@
 package com.company;
 
-import com.company.awkward.hero.Camille;
-import com.company.awkward.hero.Diana;
-import com.company.awkward.hero.Irelia;
+import com.company.abstraction.SkillImpl;
+import com.company.abstraction.hero.Camille;
+import com.company.abstraction.hero.Diana;
+import com.company.abstraction.hero.Irelia;
+//import com.company.awkward.hero.Camille;
+//import com.company.awkward.hero.Irelia;
 
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
+//        String name = getPlayerInput();
+//        switch (name) {
+//            case "Diana":
+//                Diana diana = new Diana();
+//                diana.r();
+//            case "Irelia":
+//                Irelia irelia = new Irelia();
+//                irelia.r();
+//            case "Camille":
+//                Camille camille = new Camille();
+//                camille.r();
+//        }
+//    }
+
+    public static void main(String[] args) throws Exception {
         String name = getPlayerInput();
-        switch (name) {
+        SkillImpl iSkill;
+        switch (name){
             case "Diana":
-                Diana diana = new Diana();
-                diana.r();
+                iSkill = new Diana();
+                break;
             case "Irelia":
-                Irelia irelia = new Irelia();
-                irelia.r();
+                iSkill = new Irelia();
+                break;
             case "Camille":
-                Camille camille = new Camille();
-                camille.r();
-
+                iSkill = new Camille();
+                break;
+            default:
+                throw new Exception();
         }
+        iSkill.r();
     }
-
     private static String getPlayerInput() {
         System.out.println("enter a hero's name");
         Scanner scanner = new Scanner(System.in);
